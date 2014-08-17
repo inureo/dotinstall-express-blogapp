@@ -1,0 +1,10 @@
+<% include ../header %>
+<h1>Add New</h1>
+<form action="/posts/create" method="post">
+    <label for="title">タイトル</label><input type="text" name="title" id=""/><br/>
+    <label for="body">ボディ</label><input type="text" name="body" id=""/><br/>
+    <input type="hidden" name="_csrf" value="<%= csrftoken %>" />
+    <input type="submit" value="Add"/>
+</form>
+<p><a href="/posts/new">Add New</a></p>
+<% include ../footer %>

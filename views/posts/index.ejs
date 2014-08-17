@@ -1,0 +1,23 @@
+<% include ../header %>
+<h1>Posts</h1>
+<ul>
+    <% for (var i = 0; i < posts.length; i++) { %>
+    <li>
+        <a href="/posts/<%= i %>">
+            <%= posts[i].title %>
+        </a>
+        &nbsp;
+        <a href="/posts/<%= i %>/edit">
+            [Edit]
+        </a>
+        <form action="/posts/<%= i %>" method="post">
+            <input type="submit" value="Delete"/>
+            <input type="hidden" name="_csrf" value="<%= csrftoken %>" />
+            <input name="_method" value="delete" type="hidden"/>
+            <input name="id" value="<%= i %>" type="hidden"/>
+        </form>
+    </li>
+    <% } %>
+</ul>
+<p><a href="/posts/new">Add New</a></p>
+<% include ../footer %>
